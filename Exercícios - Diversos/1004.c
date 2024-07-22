@@ -9,3 +9,13 @@ Imprima a mensagem "PROD" e a variável PROD conforme exemplo abaixo, com um esp
 */
 
 #include <stdio.h>
+
+int main() {
+ 
+    int a, b, prod;
+    scanf("%d %d", &a,&b);
+    prod= a*b;
+    printf("PROD = %d\n", prod);
+ 
+    return 0;
+}

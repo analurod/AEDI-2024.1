@@ -9,3 +9,17 @@ Imprima o total que o funcionário deverá receber, conforme exemplo fornecido.
 */
 
 #include <stdio.h>
+
+int main() {
+    double valorFixo, montante, salario;
+    char nomeVendedor[10];
+    
+    scanf("%s", nomeVendedor);
+    scanf("%lf %lf", &valorFixo, &montante);
+    
+    salario = valorFixo + 0.15*montante;
+    
+    printf("TOTAL = R$ %.2lf\n", salario);
+    
+    return 0;
+}

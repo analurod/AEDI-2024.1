@@ -10,3 +10,14 @@ Imprima a mensagem "SOMA" com todas as letras maiúsculas, com um espaço em bra
 
 #include <stdio.h>
 
+int main() {
+
+    int a;
+    int b;
+    int soma;
+    scanf("%d %d", &a,&b);
+    soma = a+b;
+    printf("SOMA = %d\n", soma);
+    
+    return 0;
+}

@@ -9,3 +9,15 @@ Imprima o número e o salário do funcionário, conforme exemplo fornecido, com 
 */
 
 #include <stdio.h>
+
+int main() {
+    
+    int f;
+    double h;
+    double d;
+    scanf("%i %lf %lf",&f,&h,&d);
+    printf("NUMBER = %i\n",f);
+    printf("SALARY = U$ %.2lf\n",h*d);
+ 
+    return 0;
+}

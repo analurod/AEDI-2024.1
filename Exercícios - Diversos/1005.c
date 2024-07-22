@@ -9,3 +9,13 @@ Imprima a mensagem "MEDIA" e a m√©dia do aluno conforme exemplo abaixo, com 5 d√
 */
 
 #include <stdio.h>
+
+int main() {
+ 
+    double a, b, m;
+    scanf("%lf %lf", &a,&b);
+    m= (3.5*a + 7.5*b)/11;
+    printf("MEDIA = %0.5lf\n", m);
+ 
+    return 0;
+}
