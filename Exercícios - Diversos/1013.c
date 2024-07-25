@@ -9,3 +9,20 @@ Imprima o maior dos três valores seguido por um espaço e a mensagem "eh o maio
 */
 
 #include <stdio.h>
+
+int main() {
+    int a[3],  maior=-20000;
+    
+    for(int i=0; i<3; i++){
+        scanf("%d", &a[i]);
+        if(a[i]>maior){
+            maior=a[i];
+        }
+    }
+    
+    printf("%d eh o maior\n", maior);
+    
+    
+    
+    return 0;
+}

@@ -9,3 +9,15 @@ Apresente o valor que representa o consumo médio do automóvel com 3 casas apó
 */
 
 #include <stdio.h>
+int main() {
+    int x;
+    double y, resul;
+    
+    scanf("%d %lf", &x, &y);
+    
+    resul= x/y;
+    
+    printf("%.3lf km/l\n", resul);
+    
+    return 0;
+}

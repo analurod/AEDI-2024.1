@@ -1,4 +1,4 @@
-/* PROBLEMA 1018
+/* PROBLEMA 1018 - RECURSIVO
 Leia um valor inteiro. A seguir, calcule o menor número de notas possíveis (cédulas) no qual o valor pode ser decomposto. As notas consideradas são de 100, 50, 20, 10, 5, 2 e 1. A seguir mostre o valor lido e a relação de notas necessárias.
 
 Entrada
@@ -10,25 +10,30 @@ Imprima o valor lido e, em seguida, a quantidade mínima de notas de cada tipo n
 
 #include <stdio.h>
 
+void calcula_quantNotas(int valor, int notas[], int i) {
+    if (valor < 0 || i >= 7) {
+        return;
+    }
+    
+    int qnotas = valor / notas[i];
+    printf("%d nota(s) de R$ %d,00\n", qnotas, notas[i]);
+
+    calcula_quantNotas(valor % notas[i], notas, i + 1);
+}
+
 int main() {
- 
-    int valor, rcem, rcinquenta, rvinte, rdez, rcinco, rdois;
-   
-    scanf("%d",&valor);
+    int valor, i = 0;
+    int notas[] = {100, 50, 20, 10, 5, 2, 1};
+
+    scanf("%d", &valor);
+
+    if (valor < 0 || valor > 1000000) {
+        return 1;
+    }
+
     printf("%d\n", valor);
-    printf("%d nota(s) de R$ 100,00\n", valor/100);
-    rcem = valor%100;
-    printf("%d nota(s) de R$ 50,00\n", rcem/50);
-    rcinquenta = rcem%50;
-    printf("%d nota(s) de R$ 20,00\n", rcinquenta/20);
-    rvinte = rcinquenta%20;
-    printf("%d nota(s) de R$ 10,00\n", rvinte/10);
-    rdez = rvinte%10;
-    printf("%d nota(s) de R$ 5,00\n", rdez/5);
-    rcinco = rdez%5;
-    printf("%d nota(s) de R$ 2,00\n", rcinco/2);
-    rdois = rcinco%2;
-    printf("%d nota(s) de R$ 1,00\n", rdois);
- 
+
+    calcula_quantNotas(valor, notas, i);
+
     return 0;
 }

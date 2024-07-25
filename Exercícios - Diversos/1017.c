@@ -9,3 +9,16 @@ Imprima a quantidade de litros necessária para realizar a viagem, com três dí
 */
 
 #include <stdio.h>
+
+int main() {
+    float horas, velocidade, litros;
+    int km_litro =12;
+    
+    scanf("%f %f", &horas, &velocidade);
+    
+    litros = (horas*velocidade) / km_litro;
+    
+    printf("%0.3f\n", litros);
+ 
+    return 0;
+}

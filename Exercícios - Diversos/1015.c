@@ -8,3 +8,18 @@ Calcule e imprima o valor da distância segundo a fórmula fornecida, consideran
 */
 
 #include <stdio.h>
+#include <math.h>
+ 
+int main() {
+    double x1, x2, y1, y2, dist;
+    
+    scanf("%lf %lf", &x1, &y1);
+    scanf("%lf %lf", &x2, &y2);
+    
+    dist = pow((x2-x1),2)+pow((y2-y1),2);
+    dist=sqrt(dist);
+    
+    printf("%.4lf\n", dist);
+ 
+    return 0;
+}

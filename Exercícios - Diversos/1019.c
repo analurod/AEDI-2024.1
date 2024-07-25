@@ -9,3 +9,16 @@ Imprima o tempo lido no arquivo de entrada (segundos), convertido para horas:min
 */
 
 #include <stdio.h>
+
+int main() {
+ 
+    int tempo, segundos, minutos;
+
+    scanf("%d", &tempo);
+
+    minutos= tempo%3600;
+    segundos = minutos%60;
+    printf("%d:%d:%d\n", tempo/3600, minutos/60, segundos);
+ 
+    return 0;
+}

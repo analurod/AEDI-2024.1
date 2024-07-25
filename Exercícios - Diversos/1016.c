@@ -13,3 +13,18 @@ Imprima o tempo necessário seguido da mensagem "minutos".
 */
 
 #include <stdio.h>
+ 
+int main() {
+    int kmDistante, tempo = 0;
+    
+    scanf("%d", &kmDistante);
+    
+    while(kmDistante != 0){
+        tempo += 2;
+        kmDistante--;
+    }
+    
+    printf("%d minutos\n", tempo);
+ 
+    return 0;
+}
