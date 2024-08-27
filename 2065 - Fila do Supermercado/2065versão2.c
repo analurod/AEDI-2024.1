@@ -30,6 +30,7 @@ Pcliente cria_cliente(){
    return cliente;
 }
 
+// Adiciona um novo caixa na fila de caixas
 void forma_caixa(Pcaixa fila, int v){
   Pcaixa no = (Caixa*)malloc(sizeof(Caixa));
   Pcaixa aux;
@@ -42,6 +43,7 @@ void forma_caixa(Pcaixa fila, int v){
   no->prox=NULL;
 }
 
+// Adiciona um novo cliente na fila de clientes
 void clientes(Pcliente cl, int v){
   Pcliente no = (Cliente*)malloc(sizeof(Cliente));
   Pcliente aux;
@@ -54,6 +56,8 @@ void clientes(Pcliente cl, int v){
   no->prox=NULL;
 }
 
+/* Recebe a fila de caixas e clientes e distribui os clientes 
+entre os caixas, sempre escolhendo o caixa com o menor tempo acumulado */
 void passar_compras(Pcliente cl, Pcaixa fila) {
     Pcliente aux2 = cl->prox; // Começa com o primeiro cliente na fila
 
@@ -75,6 +79,7 @@ void passar_compras(Pcliente cl, Pcaixa fila) {
     }
 }
 
+//Calcula o maior tempo acumulado entre os caixas após o atendimento de todos os clientes
 int maior_tempo(Pcliente cl, Pcaixa fila){
   int maior = 0;
   Pcaixa aux;
@@ -89,6 +94,8 @@ int maior_tempo(Pcliente cl, Pcaixa fila){
   return maior;
 }
 
+
+// Libera memória alocada
 void libera(Pcliente cl, Pcaixa fila){
   Pcliente aux, lixo = cl;
   Pcaixa aux2, lixo2 = fila;
