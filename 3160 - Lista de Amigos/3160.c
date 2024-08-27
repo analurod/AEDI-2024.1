@@ -96,6 +96,7 @@ void insere_com_parametro(pLista lista, char *amigo, pLista achou, char *amigoPa
 
 }
 
+// Imprime a lista de amigos
 void imprime(pLista lista){
   pLista aux;
 
@@ -110,6 +111,7 @@ void imprime(pLista lista){
 
 }
 
+// Função para liberar memória alocada
 void libera(pLista lista) {
     pLista aux;
 
@@ -134,15 +136,15 @@ int main(void) {
 
   scanf(" %[^\n]", amigoParametro);
 
-  token = strtok(listaInicio, " ");
+  token = strtok(listaInicio, " "); // Divide a sting "lista inicio" pelo demarcador "espaço"
   while(token != NULL){
     lista_incial_amigos(lista, token);
     token = strtok(NULL, " ");
   } 
 
   achou = busca(lista,amigoParametro);
-  token = strtok(amigosAdicionados, " ");
 
+  token = strtok(amigosAdicionados, " "); // Divide a sting "amigos adicionados" pelo demarcador "espaço"
   while(token != NULL){
     insere_com_parametro(lista, token, achou, amigoParametro);
     token = strtok(NULL, " ");
