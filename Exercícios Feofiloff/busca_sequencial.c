@@ -1,6 +1,6 @@
 // Vetor ordenado - Busca Sequencial
 
-/* No pior dos casos tem tempo de execução O(n)*/
+/* No pior dos casos tem tempo de execução O(n) */
 
 /*A função recebe um vetor de tamanho n e um inteiro x.
 Se x é um elemento de v a função retorna a possição, caso não seja retorna o tamanho do vetor*/
