@@ -1,22 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAX 6
 
-typedef struct no{
+typedef struct{
     int vert;
     struct no *prox;
 } Vertice;
 
 typedef Vertice *pVert;
 
-typedef struct grafo{
+typedef struct{
     int v;
     int a;
     pVert *adj;
 } Grafo;
 
-int ordem[MAX], cont = 0;
 
 Grafo *inicializa(int V){
     Grafo *g = (Grafo*) malloc (sizeof (Grafo));
@@ -42,17 +42,7 @@ void insereAresta(Grafo *g, int a, int b){
     g->a++; // Incrementa o número de arestas
 }
 
-void dfs(Grafo *g, int v){
-    pVert aux;
-    ordem[v] = cont++;
 
-    for(aux = g->adj[v]; aux != NULL; aux = aux ->prox){
-        int temp = aux->vert;
-        if(ordem[temp] == -1){
-            dfs(g, temp);
-        }
-    }
-}
 
 void liberaGrafo(Grafo *g) {
     for (int v = 0; v < g->v; v++) {
@@ -67,6 +57,37 @@ void liberaGrafo(Grafo *g) {
     free(g);
 }
 
+void bfs(Grafo *g, int inicio, int *dist) {
+    int visitado[MAX];
+
+    for(int i = 0; i < MAX; i++){
+        visitado[i] = 0; 
+        dist[i] = 0;
+    }
+    
+    int fila[MAX];
+    int frente = 0, traseira = 0;
+
+    // Começa com o vértice inicial
+    fila[traseira++] = inicio;
+    visitado[inicio] = 1;
+    dist[inicio] = 0;
+    
+    while (frente < traseira) {
+        int u = fila[frente++];
+        
+        pVert aux;
+        for (aux = g->adj[u]; aux != NULL; aux = aux->prox) {
+            int v = aux->vert;
+            if (!visitado[v]) {
+                visitado[v] = 1;
+                fila[traseira++] = v;
+                dist[v] = dist[u] + 1; // Atualiza a distância para o vértice v
+            }
+        }
+    }
+}
+
 int main(){
     Grafo *g = inicializa(MAX);
 
@@ -76,23 +97,13 @@ int main(){
     insereAresta(g, 3, 4);
     insereAresta(g, 2, 5);
 
-    for(int i = 0; i < MAX; i++){
-        ordem[i] = -1;
-    }
+    int dist[MAX];
+    bfs(g, 0, dist); // Executa BFS a partir do vértice 0
 
-    // Executa DFS para todos os vértices para garantir a cobertura total
-    for (int i = 0; i < MAX; i++) {
-        if (ordem[i] == -1) {  // Se o vértice ainda não foi visitado
-            dfs(g, i);
-        }
+    printf("Distâncias mínimas a partir do vértice 0:\n");
+    for (int i = 0; i < g->v; i++) {
+        printf("Distância do vértice 0 ao vértice %d: %d\n", i, dist[i]);
     }
-
-    printf("Ordem de descoberta: ");
-    for (int i = 0; i < MAX; i++) {
-        if (ordem[i] != -1)  // Verifica se o vértice foi descoberto
-            printf("Vértice %d: Ordem %d\n", i, ordem[i]);
-    }
-    printf("\n");
 
     liberaGrafo(g);
 
