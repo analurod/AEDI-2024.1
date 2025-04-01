@@ -5,7 +5,7 @@
 
 ## Informações Gerais
 
-Este repositório foi criado para armazenar os materiais, exercícios e projetos desenvolvidos ao longo do semestre.
+Este repositório foi criado para armazenar os materias, exercícios e projetos desenvolvidos ao longo do semestre.
 
 - **Disciplina:** Algoritmos e Estruturas de Dados I (AED I)
 - **Período:** 2024.1
